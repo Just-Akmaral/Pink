@@ -1,0 +1,121 @@
+/**-----------------COLORS----------------------**/
+
+@blue-color: rgba(40, 54, 69, 1);
+@blue-color-dark: rgba(21, 28, 36, 0.7);
+
+@grey-color: rgba(242, 242, 242, 1);//background
+@grey-color-dark: rgba(205, 207, 209, 1);//a href dwn
+@grey-color-medium: rgba(126, 134, 143, 1); //slider hvr
+@grey-color-light: rgba(233, 235, 236, 1); //иконка social-btn
+@grey-color-slider: rgba(190, 194, 199, 1); //стрелочки
+
+@pink-color: rgba(210, 40, 86, 1);
+@pink-color-light: rgba(241, 190, 203, 1);//btn dwn
+
+/**-----------------SCREEN WIDTH----------------------**/
+
+@dekstop-width: 1200px;
+@tablet-width: 700px;
+@mobile-width: 320px;
+
+/**-----------------FONT SIZE----------------------**/
+@dekstop-font-size: 18px;
+@dekstop-font-size-h1: @dekstop-font-size + 32; // 50
+@dekstop-font-size-h2: @dekstop-font-size + 12; // 30
+@dekstop-font-size-h3: @dekstop-font-size + 6; // 24
+@dekstop-font-size-p: @dekstop-font-size + 6; // 24
+@dekstop-font-size-btn:  @dekstop-font-size + 3; // 21
+
+@tablet-font-size: 14px;
+@tablet-font-size-h1: @mobile-font-size + 26; // 40
+@tablet-font-size-h2: @mobile-font-size + 16; // 30
+@tablet-font-size-h3: @mobile-font-size + 6; // 20
+@tablet-font-size-p: @mobile-font-size + 4; // 18
+@tablet-font-size-btn: @mobile-font-size + 4; // 18
+@tablet-font-size-oth: @mobile-font-size + 2; //16
+
+@mobile-font-size: 14px;
+@mobile-font-size-h1: @mobile-font-size + 4; // 18
+@mobile-font-size-h2: @mobile-font-size + 10; // 24
+@mobile-font-size-btn: @mobile-font-size + 4; // 18
+
+/**-----------------BASE STYLE----------------------**/
+@font-family: 'Open Sans', "PT Sans Narrow", "Arial",sans-serif;
+
+@base-text-color: @blue-color;
+@base-background-color: white;
+
+/*------------------MIXINS---------------*/
+.setColorStyle(@color: @blue-color; @backcolor: white){
+  color: @color;
+  background-color: @backcolor;
+}
+
+.setTextStyle(){
+  font-family: @font-family;
+  font-size: 100%;
+  font-weight: normal;
+  font-style: normal;
+  text-align: center;
+}
+.setTextSize(@size: @dekstop-font-size; @height:30px; @weight:normal) {
+ font-size:@size;
+ line-height:@height;
+ font-weight:@weight;
+}
+.setFlex(@direction:row; @content:center) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: @content;
+  flex-direction: @direction;
+}
+.zero-centered() {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    margin:auto;
+}
+.setPaddingLR(@value:130px){
+  padding-left:@value;
+  padding-right:@value;
+}
+.setPaddingTB(@value){
+  padding-top:@value;
+  padding-bottom:@value;
+}
+.setMarginLR(@value:0px){
+  margin-left:@value;
+  margin-right:@value;
+}
+.setMarginTB(@value:0px){
+  margin-top:@value;
+  margin-bottom:@value;
+}
+.setIcon(@icon){
+  content:url("img/@{icon}.svg");
+}
+.setNav(){
+  input{
+    display: none;
+  }
+  label {
+    cursor: pointer;
+    display: inline-block;
+    height: 8px;
+    margin: 10px;
+    position: relative;
+    width: 8px;
+    border-radius: 50%;
+  }
+  label:after {
+    content: " ";
+    display: block;
+    height: 6px;
+    position: absolute;
+    width: 6px;
+    border-radius: 50%;
+    background: @grey-color;
+  }
+}

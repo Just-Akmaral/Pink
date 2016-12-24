@@ -2,95 +2,182 @@
 <html lang="ru">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Pink</title>
       <link href="normalize.css" rel="stylesheet">
+      <link href="style.css" rel="stylesheet">
   </head>
   <body>
     <header class="main-header">
-      <img class="index-logo" src="img/index-logo.png" width="" height="" alt="Pink-logo"><!--текст и картинка раздельно?-->
-        <nav class="main-navigation">
-          <ul>
+        <a class="header-logo">
+          <picture>
+            <source media="(min-width: 960px)" srcset="img/header-logo.png" alt="Pink-logo">
+            <source media="(min-width: 700px)" srcset="img/header-logo-tablet.png" alt="Pink-logo">
+            <img src="img/header-logo-mobile.png"  alt="Pink-logo">
+          </picture>
+        </a>
+        <nav class="header-navigation">
+          <ul id="menu-id">
+            <li><a href="#">Главная</a></li>
+            <li><a href="#">Фотографии</a></li>
+            <li><a href="#">Конкурс</a></li>
+            <li><a href="#">HTML Academy</a></li>
+          </ul>
+          <a id="nav-toggle" href="#"><span></span></a>
+        </nav>
+        <section class="header-offer">
+          <h1>Взгляните на жизнь иначе!</h1>
+          <a class="btn" href="#">Скачать приложение</a>
+          <ul class="download-list">
             <li>
-              <a href="#">Главная</a>
-              <a href="#">Фотографии</a>
-              <a href="#">Конкурс</a>
-              <a href="#">HTML Academy</a>
+              <a class="dwn-btn icon-apple" href="#"><span>Apple</span></a>
+            </li>
+            <li>
+              <a class="dwn-btn icon-android" href="#"><span>Android</span></a>
+            </li>
+            <li>
+              <a class="dwn-btn icon-windows" href="#"><span>Windows</span></a>
             </li>
           </ul>
-        </nav>
+          <p>Доступно для Iphone, Ipad, Android, Windows Phone, OS X, Windows 8</p>
+          <picture>
+            <source media="(min-width: 960px)"
+            srcset="img/iphone-hand-desktop@1x.png 1x, iphone-hand-desktop@2x.png 2x"
+            alt="iphone-hand">
+            <source media="(min-width: 700px)" srcset="img/iphone-hand-tablet@1x.png 1x, iphone-hand-tablet@2x.png 2x" 
+            alt="iphone-hand">
+            <img src="img/iphone-hand-mobile@2x.png" alt="iphone-hand">
+          </picture>
+        </section>
     </header>
-    <main>
-      <section class="offer">
-        <img class="photo-offer" src="img/photo-offer.jpg" width="" height="" alt="photo-offer">
-        <h1>Взгляните на жизнь иначе!</h1>//промо?
-        <!--кнопка/ссылка скачать приложение-->
-        <!--иконки-->
-        <p>Доступно для Iphone, Ipad, Android, Windows Phone, OS X, Windows 8</p>
-      </section>
-      <section class="features"><!--или назвать по другому? и добавить отдельно див?-->
-        <h2>Устали от серости мегаполиса? Нам есть, что вам предложить!</h2><!--или H1?-->
-          <div class="feature-item">
-                <img class="feature-photo" src="img/photo-feature-1.jpg" width="" height="" alt="photo-feature-1">
+  <main class="main-main">
+      <h2 class="main-title">Устали от серости мегаполиса?<br/> Нам есть, что вам <br/>предложить!</h2>
+      <section class="features">
+        <ul>
+          <li class="feature">
+                <img class="feature-photo" src="img/photo-feature-1.png" width="" height="" alt="photo-feature-1">
                 <h3 class="feature-name">Поднимает настроение</h3>
                 <p>Приложение позволит вам победить осеннюю хандру и депрессию буквально в несколько кликов!</p>
-          </div>
-          <div class="feature-item">
-                <img class="feature-photo" src="img/photo-feature-2.jpg" width="" height="" alt="photo-feature-2">
+          </li>
+          <li class="feature">
+                <img class="feature-photo" src="img/photo-feature-2.png" width="" height="" alt="photo-feature-2">
                 <h3 class="feature-name">Меняет мир вокруг</h3>
                 <p>Сделайте снимок и украсьте его смайликом или текстовой подписью, чтобы усилить эффект</p>
-          </div>
-          <div class="feature-item">
-                <img class="feature-photo" src="img/photo-feature-3.jpg" width="" height="" alt="photo-feature-3">
+          </li>
+          <li class="feature">
+                <img class="feature-photo" src="img/photo-feature-3.png" width="" height="" alt="photo-feature-3">
                 <h3 class="feature-name">Заводит новых друзей</h3>
                 <p>Ставьте лайки, комментируте, делитесь фотографиями с друзьями и заводите новых</p>
-          </div>
-          <div class="feature-item">
-                <!-- //картинка с секундомером-->
-                <!-- <img class="reason-photo" src="img/photo-reason-4.jpg" width="" height="" alt="photo-reason-4"> -->
-                <h3 class="feature-name">Эффект на 24 часа!</h3>
-                <p>Британские ученые провели исследования и доказали,что положительный эффект от использования приложения длится целые сутки!</p>
-                <!-- //ссылка на исследование-->
-                <!-- <a class="reason-research" href="#"><span>Узнать больше об исследовании</span></a> -->
-          </div>
+          </li>
+        </ul>
       </section>
-      <section class="reviews">
-        <!-- //псевдоэлемент для кавычек?-->
-        <div class="review">
-          <p>Это приложение перевернуло мой мир и позволило по-новому взглянуть на привычные серые вещи! А еще я познакомился со своей будущей женой в комментариях к выложенной фотографии!</p>
-          <strong> Николай Петров</strong>
-          <!-- <b>25 лет, водитель трамвая</b> может другой тег?-->
-        </div>
-      <!--   //стрелка-переключатель-->
-      </section>
-      <section class="table-price">
-        <table><!-- Просмотреть еще раз курс про таблицы-->
-          <tr>
-            <td>
+        <section class="effects">
+          <img class="effect-photo" src="img/clock.png" width="298" height="345" alt="photo-clock">
+          <div class="effect-item">
+            <h3 class="effect-title">Эффект на 24 часа!</h3>
+            <p>Британские ученые провели исследования и доказали,что положительный эффект от использования приложения длится целые сутки!</p>
+            <a class="effect-research" href="#" target="_blank" ><span>Узнать больше об исследовании</span></a>
+          </div>
+        </section>
 
-            </td>
+      <section class="reviews">
+
+          <input id="rb-1" name="radio" type="radio" checked>
+          <label for="rb-1"></label>
+          <input id="rb-2" name="radio" type="radio" >
+          <label for="rb-2"></label>
+          <input id="rb-3" name="radio" type="radio">
+          <label for="rb-3"></label>
+
+        <blockquote class="review" title="Petrov">
+          <p>Это приложение перевернуло мой мир и позволило по-новому взглянуть на привычные серые вещи! А еще я познакомился со своей будущей женой в комментариях к выложенной фотографии!</p>
+          <cite class="author-name"> Николай Петров</cite>
+          <cite class="author-proffesion">25 лет, водитель трамвая</cite>
+        </blockquote>
+        <blockquote class="review" title="Ivanov">
+          <p>Это приложение перевернуло мой мир и позволило по-новому взглянуть на привычные серые вещи! А еще я познакомился со своей будущей женой в комментариях к выложенной фотографии!</p>
+          <cite class="author-name"> Николай Иванов</cite>
+          <cite class="author-proffesion">35 лет, водитель трамвая</cite>
+        </blockquote>
+        <blockquote class="review" title="Sidorov">
+          <p>Это приложение перевернуло мой мир и позволило по-новому взглянуть на привычные серые вещи! А еще я познакомился со своей будущей женой в комментариях к выложенной фотографии!</p>
+          <cite class="author-name"> Николай Сидоров</cite>
+          <cite class="author-proffesion">45 лет, водитель трамвая</cite>
+        </blockquote>
+
+        <!-- <nav class="reviews-navigation">
+          <div class="dekstop">
+            <button href="#" class="btn-prev"></button>
+            <button href="#" class="btn-next"></button>
+          </div> -->
+          <!-- <div class="tablet-and-mobile"> -->
+
+          <!-- </div>
+        </nav> -->
+      </section>
+      <section class="prices">
+        <table class="price-table">
+            <tr>
+              <th></th>
+              <th class="price-tariff">
+                <b class="price-tariff-name">База</b>
+                <b class="price-tariff-cost">1,99 USD</b>
+              </th>
+              <th class="price-tariff">
+                <b class="price-tariff-name">Стандарт</b>
+                <b class="price-tariff-cost">3,99 USD</b>
+                <em>хит</em>
+              </th>
+              <th class="price-tariff">
+                <b class="price-tariff-name">Анлим</b>
+                <b class="price-tariff-cost">9,99 USD</b>
+              </th>
+          </tr>
+          <tr>
+            <td class="price-option">Розовый фильтр</td>
+            <td class="price-item">Розовый фильтр - <span class="price-item-yes">Да</span></td>
+            <td class="price-item">Розовый фильтр - <span class="price-item-yes">Да</span></td>
+            <td class="price-item">Розовый фильтр - <span class="price-item-yes"> Да</span></td>
+          </tr>
+          <tr>
+            <td class="price-option">Смайлики</td>
+            <td class="price-item">Смайлики - <span class="price-item-no">Нет</span></td>
+            <td class="price-item">Смайлики - <span class="price-item-yes">Да</span></td>
+            <td class="price-item">Смайлики - <span class="price-item-yes">Да</span></td>
+          </tr>
+          <tr>
+            <td class="price-option">Комментарии</td>
+            <td class="price-item">Комментарии - <span class="price-item-no">Нет</span></td>
+            <td class="price-item">Комментарии - <span class="price-item-no">Нет</span></td>
+            <td class="price-item">Комментарии - <span class="price-item-yes">Да</span></td>
           </tr>
         </table>
       </section>
-      <section class="contacts">
-        <h2>Остались вопросы? Свяжитесь с нами!</h2><!-- //заголовок h2?-->
-        <div class="contacts-item">
-          <b class="contacts-title">Звоните:</b>
-          <b class="contacts-content">+7 (812) 555-66-66</b><!-- //или p? contacts-content Не оч-->
-        </div>
-        <div class="contacts-item">
-          <b class="contacts-title">Приезжайте в гости:</b>
-          <b>ул. Большая Конюшенная, 19/8</b>
-        </div>
-        <div class="contacts-item">
-          <b class="contacts-title">Пишите:</b>
-          <b class="contacts-content">mail@htmlacademy.ru</b>
-        </div>
+      <section class="feedback">
+        <h2>Остались вопросы? Свяжитесь с нами!</h2>
+        <div class="contacts">
+          <div class="contacts-item">
+            <b class="contacts-item-title">Звоните:</b>
+            <b class="contacts-item-content">+7 (812) 555-66-66</b>
+          </div>
+          <div class="contacts-item">
+            <b class="contacts-item-title">Приезжайте в гости:</b>
+            <b class="contacts-item-content">ул. Большая Конюшенная, 19/8</b>
+          </div>
+          <div class="contacts-item">
+            <b class="contacts-item-title">Пишите:</b>
+            <b class="contacts-item-content">mail@htmlacademy.ru</b>
+          </div>
+       </div>
         <img class="map" src="img/photo-map.jpg" width="" height="" alt="photo-map">
       </section>
     </main>
     <footer class="main-footer">
-        <section class="footer-logo">//?
-            <img src="img/footer-logo.png" width="" height="" alt="Pink-logo">
+        <section class="footer-logo">
+          <picture>
+            <source media="(min-width: 1200px)" srcset="img/footer-logo.png" width="146" height="40" alt="Pink-logo">
+            <img src="img/footer-logo-tablet.png" width="145" height="40" alt="Pink-logo">
+          </picture>
         </section>
         <section class="footer-social" >
           <a class="social-btn icon-twitter" href="https://twitter.com"><span>Twitter</span></a>
@@ -100,9 +187,20 @@
         <section class="footer-copyright">
           <b>Разработано</b>
           <a href="https://htmlacademy.ru">
-            <img src="img/by-htmlacademy.png" width="113" alt="html-academy-logo">
+            <img src="img/htmlacademy.svg" width="35px" alt="html-academy-logo">
           </a>
         </section>
     </footer>
+    <script>
+      var open = document.querySelector("#menu-id");
+      var navtoggle = document.querySelector( "#nav-toggle" );
+
+      navtoggle.addEventListener('click', function() {
+            navtoggle.classList.toggle( "active" );
+         });
+      // if (navtoggle.className ==="active"){
+      //   open.classList.toggle( "opened" );
+      // }
+    </script>
   </body>
 </html>
