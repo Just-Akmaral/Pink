@@ -2,15 +2,13 @@
 .main-main {
     .main-title {
       .setTextSize(@size: @dekstop-font-size-h1; @height:auto; @weight: lighter);
-      .setPaddingLR(180px);
       .setPaddingTB(40px);
       @media (max-width: @tablet-width)  {
-        .setPaddingLR(20px);
-        .setTextSize(@size: @mobile-font-size-h1; @height: auto; @weight: lighter);
+        .setTextSize(@size: @mobile-font-size-h2; @height: auto; @weight: lighter);//24
+        .setPaddingLR(30px);
       }
       @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
-         .setPaddingLR(40px);
-         .setTextSize(@size: @tablet-font-size-h1; @height: auto; @weight: lighter);
+       .setTextSize(@size: @tablet-font-size-h1; @height: auto; @weight: lighter);//40
       }
     }
 }
@@ -26,12 +24,18 @@
     top: 0;
     left: 0;
     background-image: linear-gradient(to right bottom,white 50%, @grey-color 50%) ;
+    @media (max-width: @tablet-width)  {
+      height: 30px;
+    }
     @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
-     height: 55px;
+      height: 55px;
    }
   }
   padding-top: 70px;
   padding-bottom: 25px;
+  @media (max-width: @tablet-width) {
+    padding-bottom: 0;
+  }
    @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
     .setPaddingTB(0px);
   }
@@ -42,6 +46,10 @@
     margin-top: -70px;
     padding: 0;
     position: relative;
+    @media (max-width: @tablet-width)  {
+        padding-top: 50px;
+        padding-bottom: 0;
+    }
     @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
       flex-direction: column;
       flex-wrap: wrap-reverse;
@@ -63,6 +71,7 @@
         color: black;
         @media (max-width: @tablet-width)  {
            .setTextSize(@size: @mobile-font-size-h1; @height: 24px; @weight: bold);//18
+           .setMarginTB(7px);
         }
         @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
           .setTextSize(@size: @tablet-font-size-p; @height: 24px; @weight: bold);//18
@@ -85,7 +94,10 @@
           .feature-photo{display: none;}
         }
         &:last-of-type{
-          .feature-photo{order: 1;}
+          .feature-photo{order: 1;
+            margin-top: 35px;
+            //width: 156px;content: url("img/iphone-screen-mobile@2x.png");
+          }
         }
       }
       @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
@@ -96,8 +108,8 @@
         &:last-of-type{
           .feature-photo{
             position: absolute;
-             left: 0;
-             bottom: 0;
+            left: 0;
+            bottom: 0;
             order: 1;
             content: url("img/photo-feature.png");
           }
@@ -155,13 +167,15 @@
 .reviews{
   .setFlex();
   position: relative;
-    .review{
+   @media (max-width: @tablet-width)  {
+     .setPaddingTB(40px);
+   }
+  .review{
       margin-top: 190px;
       .setMarginLR(80px);
       position: relative;
      .setFlex(@direction: column);
      order:-1;
-
      @media (max-width: @tablet-width)  {
         margin-top: 0;
         .setMarginLR(0px);
@@ -171,7 +185,7 @@
        .setMarginLR(0px);
        order:-1;
     }
-    &::before{
+    &::before{//Кавычки
       width: 79px;
       height: 63px;
       .setIcon("quotest");
@@ -190,19 +204,22 @@
       //position: relative;
       @media (max-width: @tablet-width)  {
          .setTextSize(@size: @mobile-font-size); // 14 height 30
+         order: 2;
        }
-
-  }
+     }
     .author-name{
       font-style: normal;
       .setTextSize(@size: @dekstop-font-size-h3; @weight: bold); //24
       color:black;
+      .setPaddingTB(5px);
+      .setPaddingLR(5px);
+      .setPaddingTB(5px);
       @media (max-width: @tablet-width)  {
          .setTextSize(@size: @mobile-font-size-h1; @weight: bold); //18
+        order: 1;
       }
       @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
         .setTextSize(@size: @tablet-font-size-h3; @weight: bold); //20
-        order:-1;
      }
     }
     .author-proffesion{
@@ -228,7 +245,7 @@
       #rb-1:checked ~.review[title^="Petrov"],
       #rb-2:checked ~.review[title^="Ivanov"],
       #rb-3:checked ~.review[title^="Sidorov"]{
-        display: block;
+        display: flex;
       }
       label,label::after{
         display: none;
@@ -279,18 +296,45 @@
           border-bottom-color: transparent;
         }
       }
+      // конец скобок
 }
+
 .prices{
   .setFlex();
   .setColorStyle(@backcolor: @grey-color);
-  -webkit-clip-path: polygon(0 85px, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 85px, 100% 0, 100% 100%, 0 100%);
+  position: relative;
+  &::before{//"обрезать" фон
+    content: "";
+    display: block;
+    position: absolute;
+    height: 85px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-image: linear-gradient(to right bottom,white 50%, @grey-color 50%) ;
+    @media (max-width: @tablet-width)  {
+      height: 25px;
+    }
+    @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
+      height: 55px;
+   }
+  }
   .setPaddingTB(147px);
+    @media (max-width: @tablet-width)  {
+      padding-top: 90px;
+      padding-bottom: 50px;
+    }
+    @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
+      padding-top: 90px;
+      padding-bottom: 30px;
+    }
   .price{
     &-table{
+      order: -1;
       border-collapse: collapse;
       overflow: hidden;
       width: 100%;
+      margin-bottom: 40px;
       td{
         .setColorStyle(@color: @blue-color; @backcolor: white);
         .setPaddingTB(20px);
@@ -326,8 +370,6 @@
      .setPaddingTB(20px);
      position: relative;
      overflow: hidden;
-     @media (max-width: @tablet-width)  {
-     }
         &-name{
           .setTextSize(@weight: bold); // 18
           @media (max-width: @tablet-width)  {
@@ -391,6 +433,19 @@
      }
     }
   }
+  .setNav();
+  #rb-1-1:checked ~ label:nth-of-type(1):after,
+  #rb-2-2:checked ~ label:nth-of-type(2):after,
+  #rb-3-3:checked ~ label:nth-of-type(3):after  {
+    background: transparent;
+    border: 3px solid @blue-color;
+  }
+  label,label::after{
+    display: none;
+    @media (max-width: @tablet-width)  {
+      display: block;
+    }
+  }
 }
 .feedback{
     .setFlex(@direction: column);
@@ -414,10 +469,14 @@
       padding-bottom: 20px;
       &-item{
         .setFlex(@direction: column);
+        .setMarginTB(10px);
         &-title{
           .setTextSize(@height: auto; @weight: bold); // 18 height 30
           .setPaddingLR(60px);
           .setPaddingTB(5px);
+            @media (max-width: @tablet-width)  {
+              .setPaddingLR(20px);
+            }
         }
         &-content{
           .setTextSize(@size: @dekstop-font-size-p; @height: auto; @weight: lighter); //24
@@ -430,9 +489,13 @@
             &:hover{color: @blue-color;}
             &:active{color: @grey-color-dark;}
           }
-          @media (max-width: @tablet-width)  {}
-          @media (min-width: @tablet-width) and (max-width: @dekstop-width) {}
         }
+        @media (max-width: @tablet-width)  {
+          &:nth-last-of-type(2){
+            order: 1;
+          }
+        }
+      //  @media (min-width: @tablet-width) and (max-width: @dekstop-width) {}
       }
   }
 
@@ -451,6 +514,5 @@
     @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
       width: 700px;
     }
-
 }
 /*-------------END - MAIN--------------*/
