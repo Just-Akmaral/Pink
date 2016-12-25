@@ -1,13 +1,16 @@
 /**-----------------COLORS----------------------**/
 
 @blue-color: rgba(40, 54, 69, 1);
-@blue-color-dark: rgba(21, 28, 36, 0.7);
+@blue-color-dark: rgba(21, 28, 36, 0.7);//menu header
+@blue-color-medium: rgba(29, 38, 49, 1);
 
 @grey-color: rgba(242, 242, 242, 1);//background
 @grey-color-dark: rgba(205, 207, 209, 1);//a href dwn
 @grey-color-medium: rgba(126, 134, 143, 1); //slider hvr
 @grey-color-light: rgba(233, 235, 236, 1); //иконка social-btn
 @grey-color-slider: rgba(190, 194, 199, 1); //стрелочки
+@grey-color-slider-table: rgba(181, 185, 190, 1); //slider table
+
 
 @pink-color: rgba(210, 40, 86, 1);
 @pink-color-light: rgba(241, 190, 203, 1);//btn dwn
@@ -117,5 +120,8 @@
     width: 6px;
     border-radius: 50%;
     background: @grey-color;
+    @media (max-width: @tablet-width){
+      background: @grey-color-slider-table;
+    }
   }
 }
