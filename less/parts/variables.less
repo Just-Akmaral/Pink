@@ -10,7 +10,7 @@
 @grey-color-light: rgba(233, 235, 236, 1); //иконка social-btn
 @grey-color-slider: rgba(190, 194, 199, 1); //стрелочки
 @grey-color-slider-table: rgba(181, 185, 190, 1); //slider table
-
+@grey-color-price: rgba(229,229,229,1);
 
 @pink-color: rgba(210, 40, 86, 1);
 @pink-color-light: rgba(241, 190, 203, 1);//btn dwn
@@ -123,5 +123,28 @@
     @media (max-width: @tablet-width){
       background: @grey-color-slider-table;
     }
+  }
+}
+.setTable(){
+  @media (max-width: @tablet-width)  {
+      &::before,&::after{//псевдоколонка слева
+        display: block;
+        position: absolute;
+        content: "";
+        width: 20px;
+        height: 281px;
+        top: 90px;
+        background-image: linear-gradient(to bottom,
+          @blue-color, @blue-color 98px,
+          white 98px, white 157px,
+          @grey-color-price 157px, @grey-color-price 159px,
+          white 159px, white 218px,
+          @grey-color-price 218px, @grey-color-price 220px,
+          white 220px, white 279px,
+          @grey-color-price 279px, @grey-color-price 281px
+          ) ;
+      }
+      &::before{left:0;}
+      &::after{right:0;}
   }
 }
