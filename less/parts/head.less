@@ -20,7 +20,7 @@ html, body{
     } 
   } 
  
-// От 1200 десктопая версия 
+// От 1200 десктопная версия 
 @media (min-width: 1200px) { 
   .container { 
     width: 960px;
@@ -29,12 +29,12 @@ html, body{
    }
 /*-------------START - HEAD--------------*/
 .main-header{
-  .setColorStyle(@color:white);
   .setFlex(@content:flex-start);
   align-items: baseline;
   position: relative;
   padding-top: 20px;
-  &::before{
+  .setColorStyle(@color:white);
+  &::before{//затемнение меню
     content: "";
     display: block;
     position: absolute;
@@ -49,12 +49,13 @@ html, body{
   }
   background: @blue-color url("img/back-desktop.jpg") no-repeat center;
   background-image: -webkit-image-set(url("img/bg-back-desktop@1x.jpg") 1x, url("img/bg-back-desktop@2x.jpg") 2x);
-   @media (max-width: @tablet-width)  {
+   @media (max-width: @tablet-width) {
      background-image: -webkit-image-set(url("img/bg-back-mobile@2x.jpg") 2x);
+     background-color: @blue-color-medium;
    }
-    @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
-        background-image: url("img/bg-back-tablet@1x.jpg");
-        background-image: -webkit-image-set(url("img/bg-back-tablet@1x.jpg") 1x, url("img/bg-back-tablet@2x.jpg") 2x);
+   @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
+     background-image: url("img/bg-back-tablet@1x.jpg");
+     background-image: -webkit-image-set(url("img/bg-back-tablet@1x.jpg") 1x, url("img/bg-back-tablet@2x.jpg") 2x);
    }
 }
 .header{
@@ -114,6 +115,9 @@ html, body{
               background-color: white;
               opacity: 1;
               transform: translateY(8px);
+              @media (max-width: @mobile-width), (max-width:@tablet-width){
+                  display: none;
+              }
             }
           &:hover::after{background-color: @pink-color;}
           &:active::after{background-color: @grey-color-medium;}
@@ -122,86 +126,31 @@ html, body{
     }
     }
     @media (max-width: @mobile-width), (max-width:@tablet-width){
-      ul{display: none;}
-      #menu-id.opened{
-          .setFlex(@direction:column);
+      ul > li {
+        width: 100%;
       }
-      //гамбургер
-      #nav-toggle {
-        position: absolute;
-        right: 0%;
-        top: -10%;
-        cursor: pointer; padding: 10px 35px 16px 0px;
-        span{
-          &:before {
-            top: -10px;
-          }
-          &:after {
-            bottom: -10px;
-          }
-          &:active{
-            background: @pink-color;
-             &:after,&:before{
-              background: @pink-color;
-             }
-          }
-          &:hover{
-            background: @pink-color;
-            opacity: 0.7;
-            &:after,&:before{
-            background: @pink-color;
-            opacity: 0.7;
-            }
-          }
-        }
+      // Burger menu button
 
-      }
-      #nav-toggle span, #nav-toggle span:before, #nav-toggle span:after {
-        cursor: pointer;
-        border-radius: 1px;
-        height: 5px;
-        width: 35px;
-        background: white;
-        position: absolute;
-        display: block;
-        content: "";
-        transition: all 500ms ease-in-out;
-      }
-      #nav-toggle.active span{
-        background-color: transparent;
-        &:before {
-          top: 0;
-          transform: rotate(45deg);
-        }
-        &:after {
-          top: 0;
-          transform: rotate(-45deg);
-        }
-        &:active{
-          background: @pink-color;
-           &:after,&:before{
-             background: @pink-color;
-           }
-        }
-        &:hover{
-          background: @pink-color;
-          opacity: 0.7;
-          &:after,&:before{
-          background: @pink-color;
-          opacity: 0.7;
-          }
-        }
-      }
-      // конец гамбургера
+      //burger end
     }
   }
   &-offer{
-    flex-basis:310px;
+   flex-basis:320px;
     .setFlex(@direction: column);
     position: relative;
     .setPaddingTB(100px);
+    .setPaddingLR(0);
+    @media (max-width: @tablet-width)  {
+    .setPaddingTB(30px);
+      background-image: none;
+      margin-top: 395px;
+      padding-left: 10px;
+      padding-right: 10px;
+      right: 10px;
+      .setColorStyle(@color: white; @backcolor: @blue-color-medium);
+    }
     @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
-    .setPaddingTB(74px);
+      .setPaddingTB(74px);
    }
       h1{
         .setTextSize(@size: @dekstop-font-size-h1; @height: auto; @weight:lighter);
@@ -211,7 +160,7 @@ html, body{
         @media (max-width: @tablet-width)  {
           display: none;
         }
-         @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
+        @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
            .setTextSize(@size: @tablet-font-size-h1; @height: auto; @weight:lighter);
         }
       }
@@ -223,6 +172,7 @@ html, body{
         padding: 15px 0px;
         text-align: center;
         text-decoration: none;
+        box-sizing: border-box;
         .setTextSize(@size: @dekstop-font-size-btn; @height:18px; @weight:bold);
         border:3px solid white;
         border-radius:40px ;
@@ -234,7 +184,6 @@ html, body{
           .setColorStyle(@color: @pink-color-light; @backcolor: white);
         }
         @media (max-width: @tablet-width)  {
-          width: 280px;
           .setTextSize(@size: @mobile-font-size-btn; @height:18px; @weight:bold);
         }
         @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
@@ -260,7 +209,8 @@ html, body{
       }
       p{
         .setTextSize(@height: @dekstop-font-size-p; @weight:lighter);
-        @media (max-width: @tablet-width)   {
+        @media (max-width: @tablet-width){
+          .setPaddingLR(5px);
            .setTextSize(@size: @mobile-font-size; @height: 24px; @weight: lighter);
         }
         @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
