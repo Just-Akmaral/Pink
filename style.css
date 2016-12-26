@@ -260,7 +260,7 @@ body {
 }
 @media (max-width: 700px) {
   .main-header::before {
-    height: 70px;
+    height: 60px;
   }
 }
 @media (max-width: 700px) {
@@ -282,9 +282,33 @@ body {
   flex: 1 1 15%;
   text-align: left;
   z-index: 100;
+  content: url("img/logo-pink-white-desktop.svg");
+}
+@media (max-width: 700px) {
+  .header-logo {
+    content: url("img/logo-pink-white-mobile.svg");
+  }
+}
+@media (min-width: 700px) and (max-width: 1200px) {
+  .header-logo {
+    content: url("img/logo-pink-white-tablet.svg");
+  }
 }
 .header-logo:active {
   opacity: 0.7;
+}
+.header-logo:hover {
+  content: url("img/logo-pink-white-desktop-hvr.svg");
+}
+@media (max-width: 700px) {
+  .header-logo:hover {
+    content: url("img/logo-pink-white-mobile-hvr.svg");
+  }
+}
+@media (min-width: 700px) and (max-width: 1200px) {
+  .header-logo:hover {
+    content: url("img/logo-pink-white-tablet-hvr.svg");
+  }
 }
 @media (max-width: 700px) {
   .header-logo {
@@ -399,7 +423,7 @@ body {
     position: absolute;
     top: -20px;
     height: 14px;
-    margin-left: 116px;
+    margin-left: 100px;
     width: 20px;
     line-height: 2px;
     cursor: pointer;
@@ -410,17 +434,17 @@ body {
     content: "";
     position: absolute;
     left: 0;
-    top: 0px;
-    width: 20px;
-    height: 2px;
+    top: 0;
+    width: 50px;
+    height: 5px;
     background-color: white;
   }
   .header-navigation .burger::before {
-    top: 6px;
+    top: 18px;
   }
   .header-navigation .burger::after {
     top: auto;
-    bottom: 0px;
+    bottom: 0;
   }
   .header-navigation .burger:hover span,
   .header-navigation .burger:hover::after,
@@ -434,7 +458,7 @@ body {
   }
   .header-navigation #mobile-menu:checked ~ .burger::before,
   .header-navigation #mobile-menu:checked ~ .burger::after {
-    width: 28px;
+    width: 50px;
     transform: rotate(-45deg);
     top: auto;
     left: -4px;
@@ -451,6 +475,11 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
+  }
+}
+@media (max-width: 1200px) and (max-width: 700px) {
+  .header-navigation ul {
+    margin-top: 21px;
   }
 }
 @media (max-width: 1200px) and (min-width: 700px) and (max-width: 1200px) {
@@ -754,32 +783,32 @@ body {
   }
 }
 .features ul .feature:first-of-type .feature-photo {
-  content: url("img/iphone-screen-1-desktop@1x.png") no-repeat center;
+  content: url("img/iphone-screen-1-desktop@1x.png");
   content: -webkit-image-set(url("img/iphone-screen-1-desktop@1x.png") 1x, url("img/iphone-screen-1-desktop@2x.png") 2x);
 }
 @media (min-width: 700px) and (max-width: 1200px) {
   .features ul .feature:first-of-type .feature-photo {
-    content: url("img/iphone-screen-1-tablet@1x.png") no-repeat center;
+    content: url("img/iphone-screen-1-tablet@1x.png");
     content: -webkit-image-set(url("img/iphone-screen-1-tablet@1x.png") 1x, url("img/iphone-screen-1-tablet@2x.png") 2x);
   }
 }
 .features ul .feature:nth-of-type(2) .feature-photo {
-  content: url("img/iphone-screen-2-desktop@1x.png") no-repeat center;
+  content: url("img/iphone-screen-2-desktop@1x.png");
   content: -webkit-image-set(url("img/iphone-screen-2-desktop@1x.png") 1x, url("img/iphone-screen-2-desktop@2x.png") 2x);
 }
 @media (min-width: 700px) and (max-width: 1200px) {
   .features ul .feature:nth-of-type(2) .feature-photo {
-    content: url("img/iphone-screen-2-tablet@1x.png") no-repeat center;
+    content: url("img/iphone-screen-2-tablet@1x.png");
     content: -webkit-image-set(url("img/iphone-screen-2-tablet@1x.png") 1x, url("img/iphone-screen-2-tablet@2x.png") 2x);
   }
 }
 .features ul .feature:last-of-type .feature-photo {
-  content: url("img/iphone-screen-3-desktop@1x.png") no-repeat center;
+  content: url("img/iphone-screen-3-desktop@1x.png");
   content: -webkit-image-set(url("img/iphone-screen-3-desktop@1x.png") 1x, url("img/iphone-screen-3-desktop@2x.png") 2x);
 }
 @media (min-width: 700px) and (max-width: 1200px) {
   .features ul .feature:last-of-type .feature-photo {
-    content: url("img/iphone-screen-3-tablet@1x.png") no-repeat center;
+    content: url("img/iphone-screen-3-tablet@1x.png");
     content: -webkit-image-set(url("img/iphone-screen-3-tablet@1x.png") 1x, url("img/iphone-screen-3-tablet@2x.png") 2x);
   }
 }
@@ -1496,24 +1525,60 @@ body {
   }
 }
 .map {
-  -webkit-clip-path: polygon(0 0, 50% 20%, 100% 0, 100% 100%, 0 100%);
-  clip-path: polygon(0 0, 50% 20%, 100% 0, 100% 100%, 0 100%);
-  margin: 0 auto;
-  margin-top: 2%;
-  width: 1200px;
   display: block;
   position: relative;
-  background-position: top center;
+  margin: 0 auto;
+  margin-top: 2%;
+  overflow: hidden;
+  height: 530px;
+  -webkit-clip-path: polygon(0 0, 50% 20%, 100% 0, 100% 100%, 0 100%);
+  clip-path: polygon(0 0, 50% 20%, 100% 0, 100% 100%, 0 100%);
+  background-position: 0 50%;
+  width: 1200px;
+  background-image: url("img/bg-map-desktop@1x.jpg");
+  background-image: -webkit-image-set(url("img/bg-map-desktop@1x.jpg") 1x, url("img/bg-map-desktop@2x.jpg") 2x);
   background-size: cover;
+}
+.map::after {
+  display: block;
+  width: 48px;
+  height: 48px;
+  content: url("img/map-marker.svg");
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  top: 25%;
+}
+@media (min-width: 700px) and (max-width: 1200px) {
+  .map::after {
+    top: 65%;
+  }
+}
+@media (max-width: 700px) {
+  .map {
+    background-image: url("img/bg-map-mobile@2x.jpg");
+    background-image: -webkit-image-set(url("img/bg-map-mobile@2x.jpg") 1x, url("img/bg-map-mobile@2x.jpg") 2x);
+  }
+}
+@media (min-width: 700px) and (max-width: 1200px) {
+  .map {
+    background-image: url("img/bg-map-tablet@1x.jpg");
+    background-image: -webkit-image-set(url("img/bg-map-tablet@1x.jpg") 1x, url("img/bg-map-tablet@2x.jpg") 2x);
+  }
 }
 @media (max-width: 700px) {
   .map {
     width: 320px;
+    height: 200px;
   }
 }
 @media (min-width: 700px) and (max-width: 1200px) {
   .map {
     width: 700px;
+    height: 380px;
   }
 }
 /*-------------START - FOOTER--------------*/

@@ -73,12 +73,12 @@
   flex-direction: @direction;
 }
 .zero-centered() {
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    margin:auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
 }
 .setPaddingLR(@value:130px){
   padding-left:@value;
@@ -148,11 +148,34 @@
       &::after{right:0;}
   }
 }
-.setFeatureImg(@name1xd,@name2xd,@name1xt,@name2xt){
-  content: url("img/@{name1xd}") no-repeat center;
+.setHeaderLogo(@namexd,@namext,@namexm){
+    content: url("img/@{namexd}");
+    @media (max-width: @tablet-width) {
+        content: url("img/@{namexm}");
+    }
+    @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
+        content: url("img/@{namext}");
+    }
+}
+.setFeatureImg(@name1xd, @name2xd, @name1xt, @name2xt){
+  content: url("img/@{name1xd}");
   content: -webkit-image-set(url("img/@{name1xd}") 1x, url("img/@{name2xd}") 2x);
   @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
-    content: url("img/@{name1xt}") no-repeat center;
+    content: url("img/@{name1xt}");
     content: -webkit-image-set(url("img/@{name1xt}") 1x, url("img/@{name2xt}") 2x);
+  }
+}
+.setMapImg(@name1xd, @name2xd, @name1xt, @name2xt, @name1xm, @name2xm){
+  background-image: url("img/@{name1xd}");
+  background-image: -webkit-image-set(url("img/@{name1xd}") 1x, url("img/@{name2xd}") 2x);
+  background-size: cover;
+  @media (max-width: @tablet-width) {
+    background-image: url("img/@{name1xm}");
+    background-image: -webkit-image-set(url("img/@{name1xm}") 1x, url("img/@{name2xm}") 2x);
+  }
+
+  @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
+    background-image: url("img/@{name1xt}");
+    background-image: -webkit-image-set(url("img/@{name1xt}") 1x, url("img/@{name2xt}") 2x);
   }
 }

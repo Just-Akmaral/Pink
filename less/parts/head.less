@@ -62,7 +62,7 @@ html, body{
     left: 0;
     .setColorStyle(@backcolor: @blue-color-dark);
     @media (max-width: @tablet-width) {
-      height: 70px;
+      height: 60px;
     }
   }
   background: @blue-color url("img/back-desktop.jpg") no-repeat center;
@@ -86,11 +86,16 @@ html, body{
       flex: 1 1 15%;
       text-align: left;
       z-index: 100;
+      .setHeaderLogo(
+        @namexd:"logo-pink-white-desktop.svg",
+        @namext:"logo-pink-white-tablet.svg",
+        @namexm:"logo-pink-white-mobile.svg");
       &:active{opacity: 0.7;}
       &:hover{
-      //    fill: @pink-color;
-      //    background-color: @pink-color;
-      //     -webkit-mask: url("img/logo-pink-white-desktop.svg") no-repeat 50% 50%;
+        .setHeaderLogo(
+          @namexd:"logo-pink-white-desktop-hvr.svg",
+          @namext:"logo-pink-white-tablet-hvr.svg",
+          @namexm:"logo-pink-white-mobile-hvr.svg");
       }
       @media (max-width: @tablet-width)  {
         flex: auto;
@@ -116,7 +121,6 @@ html, body{
         }
         margin-bottom: 2px;
         .setTextSize(@height: 18px;);
-
         @media (max-width: @dekstop-width) {
           .setTextSize(@height: 32px; @weight:bold);
           .setPaddingLR(10px);
@@ -172,6 +176,9 @@ html, body{
         display: none;
         .setPaddingLR(0);
         margin-top: 25px;
+        @media (max-width: @tablet-width){
+          margin-top: 21px;
+        }
         @media (min-width: @tablet-width) and (max-width: @dekstop-width){
           margin-top: 40px;
         }
@@ -181,7 +188,7 @@ html, body{
         position: absolute;
         top: -20px;
         height: 14px;
-        margin-left: 116px;
+        margin-left: 100px;
         @media (min-width: @tablet-width) and (max-width: @dekstop-width){margin-left: 260px;}
         width: 20px;
         line-height: 2px;
@@ -190,17 +197,17 @@ html, body{
            content: "";
            position: absolute;
            left: 0;
-           top: 0px;
-           width: 20px;
-           height: 2px;
+           top: 0;
+           width: 50px;
+           height: 5px;
            background-color: white;
          }
          &::before {
-           top: 6px;
+           top: 18px;
          }
          &::after {
            top: auto;
-           bottom: 0px;
+           bottom: 0;
          }
          &:hover{
            span,&::after,&::before{
@@ -215,7 +222,7 @@ html, body{
       }
       #mobile-menu:checked ~ .burger::before,
       #mobile-menu:checked ~ .burger::after{
-        width: 28px;
+        width: 50px;
         transform: rotate(-45deg);
         top: auto;
         left: -4px;
