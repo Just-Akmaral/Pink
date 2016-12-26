@@ -49,15 +49,16 @@ html, body{
   }
   background: @blue-color url("img/back-desktop.jpg") no-repeat center;
   background-image: -webkit-image-set(url("img/bg-back-desktop@1x.jpg") 1x, url("img/bg-back-desktop@2x.jpg") 2x);
+  background-position: center;
+  background-size: cover;
    @media (max-width: @tablet-width) {
      flex-direction: column;
      background-image: -webkit-image-set(url("img/bg-back-mobile@2x.jpg") 2x);
-     background-position: center;
-     background-size: cover;
      background-color: @blue-color-medium;
    }
    @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
      flex-direction: column;
+     padding-top: 30px;
      background-image: url("img/bg-back-tablet@1x.jpg");
      background-image: -webkit-image-set(url("img/bg-back-tablet@1x.jpg") 1x, url("img/bg-back-tablet@2x.jpg") 2x);
    }
@@ -152,7 +153,9 @@ html, body{
         display: none;
         .setPaddingLR(0);
         margin-top: 25px;
-        @media (min-width: @tablet-width) and (max-width: @dekstop-width){margin-top: 48px;}
+        @media (min-width: @tablet-width) and (max-width: @dekstop-width){
+          margin-top: 40px;
+        }
       }
       // Burger menu button
       .burger { //
@@ -202,7 +205,7 @@ html, body{
     }
   }
   &-offer{
-   width: 310px;
+   width: 320px;
     .setFlex(@direction: column);
     flex-wrap: nowrap;
     position: relative;
@@ -212,8 +215,7 @@ html, body{
       .setPaddingTB(0px);
       background-image: none;
       margin-top: 395px;
-      padding-left: 10px;
-      padding-right: 10px;
+      padding-bottom: 30px;
       right: 20px;
       .setColorStyle(@color: white; @backcolor: @blue-color-medium);
     }
@@ -237,7 +239,8 @@ html, body{
         color:inherit;
         .setColorStyle(@color: white; @backcolor: transparent);
         width: 300px;
-        margin-bottom:3 0px;
+        margin-bottom: 30px;
+        .setMarginLR(10px);
         padding: 15px 0px;
         text-align: center;
         text-decoration: none;
@@ -253,6 +256,7 @@ html, body{
           .setColorStyle(@color: @pink-color-light; @backcolor: white);
         }
         @media (max-width: @tablet-width)  {
+          margin-top: 30px;
           .setTextSize(@size: @mobile-font-size-btn; @height:18px; @weight:bold);
         }
         @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
