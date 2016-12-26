@@ -148,3 +148,11 @@
       &::after{right:0;}
   }
 }
+.setFeatureImg(@name1xd,@name2xd,@name1xt,@name2xt){
+  content: url("img/@{name1xd}") no-repeat center;
+  content: -webkit-image-set(url("img/@{name1xd}") 1x, url("img/@{name2xd}") 2x);
+  @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
+    content: url("img/@{name1xt}") no-repeat center;
+    content: -webkit-image-set(url("img/@{name1xt}") 1x, url("img/@{name2xt}") 2x);
+  }
+}

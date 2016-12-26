@@ -3,10 +3,11 @@
     .main-title {
       .setTextSize(@size: @dekstop-font-size-h1; @height:auto; @weight: lighter);
       .setPaddingTB(20px);
-      .setMarginTB(20px);
+      margin-top: 50px;
+      margin-bottom: 65px;
       @media (max-width: @tablet-width)  {
         .setTextSize(@size: @mobile-font-size-h2; @height: auto; @weight: lighter);//24
-        .setPaddingLR(30px);
+        .setPaddingLR(10px);
       }
       @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
        .setTextSize(@size: @tablet-font-size-h1; @height: auto; @weight: lighter);//40
@@ -33,7 +34,7 @@
       height: 55px;
    }
   }
-  padding-top: 70px;
+  padding-top: 62px;
   padding-bottom: 25px;
   @media (max-width: @tablet-width) {
     padding-bottom: 0;
@@ -79,6 +80,33 @@
           .setTextSize(@size: @tablet-font-size-p; @height: 24px; @weight: bold);//18
           .setMarginTB(7px);
        }
+      }
+      &:first-of-type{
+      .feature-photo{
+          .setFeatureImg(
+              @name1xd:"iphone-screen-1-desktop@1x.png",
+              @name2xd:"iphone-screen-1-desktop@2x.png",
+              @name1xt:"iphone-screen-1-tablet@1x.png",
+              @name2xt:"iphone-screen-1-tablet@2x.png");
+          }
+      }
+    &:nth-of-type(2){
+      .feature-photo{
+          .setFeatureImg(
+            @name1xd:"iphone-screen-2-desktop@1x.png",
+            @name2xd:"iphone-screen-2-desktop@2x.png",
+            @name1xt:"iphone-screen-2-tablet@1x.png",
+            @name2xt:"iphone-screen-2-tablet@2x.png");
+        }
+    }
+      &:last-of-type{
+      .feature-photo{
+          .setFeatureImg(
+            @name1xd:"iphone-screen-3-desktop@1x.png",
+            @name2xd:"iphone-screen-3-desktop@2x.png",
+            @name1xt:"iphone-screen-3-tablet@1x.png",
+            @name2xt:"iphone-screen-3-tablet@2x.png");
+          }
       }
       p{
         .setTextSize(); // 18 height 30
@@ -126,7 +154,6 @@
   flex-wrap: nowrap;
   .setColorStyle(@backcolor: @grey-color);
   .setPaddingTB(50px);
-  .effect-photo{}
   .effect-item{
     .setFlex(@direction: column);
     width: 570px;
@@ -540,11 +567,13 @@
     width: 1200px;
     display: block;
     position: relative;
-    @media (max-width: @tablet-width)  {
-      width: 320px;
+    background-position: top center;
+    background-size: cover;
+     @media (max-width: @tablet-width)  {
+      width: @mobile-width;
     }
-    @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
-      width: 700px;
-    }
+     @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
+      width: @tablet-width;
+     }
 }
 /*-------------END - MAIN--------------*/
