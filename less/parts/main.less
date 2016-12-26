@@ -2,13 +2,15 @@
 .main-main {
     .main-title {
       .setTextSize(@size: @dekstop-font-size-h1; @height:auto; @weight: lighter);
-      .setPaddingTB(40px);
+      .setPaddingTB(20px);
+      .setMarginTB(20px);
       @media (max-width: @tablet-width)  {
         .setTextSize(@size: @mobile-font-size-h2; @height: auto; @weight: lighter);//24
         .setPaddingLR(30px);
       }
       @media (min-width: @tablet-width) and (max-width: @dekstop-width) {
        .setTextSize(@size: @tablet-font-size-h1; @height: auto; @weight: lighter);//40
+       margin-bottom: 95px;
       }
     }
 }
