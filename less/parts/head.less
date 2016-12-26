@@ -183,6 +183,16 @@ html, body{
            top: auto;
            bottom: 0px;
          }
+         &:hover{
+           span,&::after,&::before{
+             background-color: @pink-color;
+           }
+         }
+         &:active{
+           span,&::after,&::before{
+             background-color: @grey-color-medium;;
+           }
+         }
       }
       #mobile-menu:checked ~ .burger::before,
       #mobile-menu:checked ~ .burger::after{
